@@ -9,9 +9,11 @@
     "start": "node server.js"
   },
   "name": "movies-library",
+
   "description": "**Author Name**: Mohammad Salhab",
   "version": "1.0.0",
   "main": "server.js",
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MohammadSalhab99/Movies-Library.git"
@@ -22,6 +24,9 @@
   "bugs": {
     "url": "https://github.com/MohammadSalhab99/Movies-Library/issues"
   },
+
   "homepage": "https://github.com/MohammadSalhab99/Movies-Library#readme",
   "devDependencies": {}
+
+  
 }

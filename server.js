@@ -13,6 +13,7 @@ app.use(cors());
 
 app.get('/', helloWorldHandler);
 app.get('/favorite', wolcomingHandler)
+
 app.get('/trending', trending)
 app.get('/search', searchf)
 app.get('*', serverErorr)
@@ -23,6 +24,7 @@ app.get('#', pageNotFoundErorr)
 
 let url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`;
 //let turl = `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.APITKEY}&language=en-US`
+
 
 function createMovie(title, posterPath, overview) {
     this.title = title;
@@ -41,6 +43,7 @@ function helloWorldHandler(req, res) {
 function wolcomingHandler(req, res) {
     return res.status(200).send('Welcome to Favorite Page')
 }
+
 
 function trending(req, res) {
     axios.get(url).then(data => {
