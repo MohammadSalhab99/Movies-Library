@@ -1,0 +1,27 @@
+{
+    "dependencies": {
+        "axios": "^0.25.0",
+        "cors": "^2.8.5",
+        "dotenv": "^15.0.1",
+        "express": "^4.17.2",
+        "pg": "^8.7.1"
+    },
+    "scripts": {
+        "start": "node server.js"
+    },
+    "name": "movies-library",
+    "description": "**Author Name**: Mohammad Salhab",
+    "version": "1.0.0",
+    "main": "server.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MohammadSalhab99/Movies-Library.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MohammadSalhab99/Movies-Library/issues"
+    },
+    "homepage": "https://github.com/MohammadSalhab99/Movies-Library#readme"
+}
