@@ -19,6 +19,10 @@ app.get('/trending', trending);
 app.get('/search', searchf);
 app.post('/addMovie', addMovieF);
 app.get('/getMovies', getMoviesF);
+
+app.put('/updateMovie/:id', updateMovieF);
+app.delete('/deleteMovie/:id', deleteMovieF);
+
 app.get('*', serverErorr);
 app.get('#', pageNotFoundErorr);
 
@@ -81,7 +85,7 @@ function addMovieF(req, res) {
     client.query(sql, values).then(data => {
         res.status(200).json(data.rows);
     }).catch(error => {
-        errorHandler(error, req, res)
+        serverErorr(error, req, res)
     });
 }
 
@@ -90,7 +94,31 @@ function getMoviesF(req, res) {
     client.query(sql).then(data => {
         res.status(200).json(data.rows);
     }).catch(error => {
-        errorHandler(error, req, res)
+
+        serverErorr(error, req, res)
+    });
+
+}
+
+function updateMovieF(req, res) {
+    const id = req.params.id;
+    const movie = req.body;
+    const sql = `UPDATE favMovies SET strDrink =$1, strDrinkThumb = $2 WHERE idDrink=$3 RETURNING *;`;
+    let values = [movie.strDrink, movie.strDrinkThumb, id];
+    client.query(sql, values).then(data => {
+        res.status(200).json(data.rows);
+    }).catch((err) => { console.log(err.message) })
+}
+
+function deleteMovieF(req, res) {
+    const id = req.params.id;
+    const sql = `DELETE FROM favMovies WHERE idDrink=${id};`
+
+    client.query(sql).then(() => {
+        res.status(200).send("The Drink has been deleted");
+    }).catch(error => {
+        serverErorr(error, req, res)
+
     });
 
 }
