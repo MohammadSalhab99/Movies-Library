@@ -6,7 +6,10 @@ const cors = require('cors');
 const axios = require('axios');
 const pg = require('pg');
 
-const client = new pg.Client(process.env.DATABASE_URL);
+const client = new pg.Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
+})
 const app = express();
 
 app.use(express.json());
@@ -126,8 +129,10 @@ function serverErorr(req, res) {
 function pageNotFoundErorr(req, res) {
     return res.status(404).send("Page Not found")
 }
+client.connect().then(() => {
+    app.listen(3000, () => {
 
-const client = new pg.Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: { rejectUnauthorized: false }
+        console.log('listening to port 3000')
+    })
+
 })
