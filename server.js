@@ -15,8 +15,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('/', helloWorldHandler);
-app.get('/drinks', drinks);
+//app.get('/', helloWorldHandler);
+app.get('/', drinks);
 app.get('/favorite', wolcomingHandler);
 app.get('/trending', trending);
 app.get('/search', searchf);
@@ -131,7 +131,6 @@ function pageNotFoundErorr(req, res) {
 }
 client.connect().then(() => {
     app.listen(3000, () => {
-
         console.log('listening to port 3000')
     })
 
