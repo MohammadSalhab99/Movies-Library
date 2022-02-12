@@ -134,7 +134,8 @@ function pageNotFoundErorr(req, res) {
     return res.status(404).send("Page Not found")
 }
 
-const client = new pg.Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: { rejectUnauthorized: false }
+client.connect().then(() => {
+    app.listen(3000, () => {
+        console.log('listening to port 3000')
+    })
 })
