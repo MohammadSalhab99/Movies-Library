@@ -22,8 +22,10 @@ app.get('/trending', trending);
 app.get('/search', searchf);
 app.post('/addMovie', addMovieF);
 app.get('/getMovies', getMoviesF);
+
 app.put('/updateMovie/:id', updateMovieF);
 app.delete('/deleteMovie/:id', deleteMovieF);
+
 app.get('*', serverErorr);
 app.get('#', pageNotFoundErorr);
 
@@ -95,6 +97,7 @@ function getMoviesF(req, res) {
     client.query(sql).then(data => {
         res.status(200).json(data.rows);
     }).catch(error => {
+
         serverErorr(error, req, res)
     });
 
@@ -118,6 +121,7 @@ function deleteMovieF(req, res) {
         res.status(200).send("The Drink has been deleted");
     }).catch(error => {
         serverErorr(error, req, res)
+
     });
 
 }
@@ -129,9 +133,9 @@ function serverErorr(req, res) {
 function pageNotFoundErorr(req, res) {
     return res.status(404).send("Page Not found")
 }
+
 client.connect().then(() => {
     app.listen(3000, () => {
         console.log('listening to port 3000')
     })
-
 })
