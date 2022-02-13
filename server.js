@@ -47,11 +47,11 @@ function creatDrink(strDrink, strDrinkThumb, idDrink) {
     this.idDrink = idDrink;
 }
 
-function helloWorldHandler(req, res) {
-    let movie = new createMovie(MoviesData.title, MoviesData.poster_path, MoviesData.overview);
-    return res.status(200).json(movie);
+// //function helloWorldHandler(req, res) {
+//     let movie = new createMovie(MoviesData.title, MoviesData.poster_path, MoviesData.overview);
+//     return res.status(200).json(movie);
 
-}
+// }
 
 function drinks(req, res) {
     let drink = new creatDrink(drinkdata.title, drinksdata.poster_path, drinksdata.overview);
@@ -130,7 +130,7 @@ function pageNotFoundErorr(req, res) {
     return res.status(404).send("Page Not found")
 }
 client.connect().then(() => {
-    app.listen(3000, () => {
+    app.listen(process.env.PORT, () => {
         console.log('listening to port 3000')
     })
 
