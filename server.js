@@ -54,7 +54,7 @@ function creatDrink(strDrink, strDrinkThumb, idDrink) {
 // }
 
 function drinks(req, res) {
-    let drink = new creatDrink(drinkdata.title, drinksdata.poster_path, drinksdata.overview);
+    let drink = new creatDrink(drinksdata.title, drinksdata.poster_path, drinksdata.overview);
     return res.status(200).json(drink);
 
 }
