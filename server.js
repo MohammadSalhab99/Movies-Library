@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 //app.get('/', helloWorldHandler);
-app.get('/', drinks);
+app.get('/', wolcomingHandler);
 app.get('/favorite', wolcomingHandler);
 app.get('/trending', trending);
 app.get('/search', searchf);
@@ -53,11 +53,11 @@ function creatDrink(strDrink, strDrinkThumb, idDrink) {
 
 // }
 
-function drinks(req, res) {
-    let drink = new creatDrink(drinksdata.title, drinksdata.poster_path, drinksdata.overview);
-    return res.status(200).json(drink);
+// function drinks(req, res) {
+//     let drink = new creatDrink(drinks.title, drinks.poster_path, drinks.overview);
+//     return res.status(200).json(drink);
 
-}
+// }
 
 function wolcomingHandler(req, res) {
     return res.status(200).send('Welcome to Favorite Page')
